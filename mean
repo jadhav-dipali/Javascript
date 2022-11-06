@@ -1,0 +1,50 @@
+Mean
+Given the marks of n students, calculate the mean.
+
+Note: If the result is a decimal Value, print it's floor value.
+
+Input
+First line contains an integer, denoting n.
+
+Second line contains n space seperated integers, denoting the marks.
+
+Output
+One Integer, denoting the mean of the marks.
+
+Example
+Input:
+
+4
+56 67 30 82
+Output:
+
+58
+Explanation:
+
+56+67+30+82 = 235
+Mean = 235/4 = 58.75
+floor(58.75) is 58
+So, the Output is 58.
+
+*************************************************************************************
+let fs = require("fs");
+let data = fs.readFileSync(0, 'utf-8');
+let idx = 0;
+data = data.split('\n');
+
+function readLine() {
+    idx++;
+    return data[idx - 1].trim();
+}
+
+// -------- Do NOT edit anything above this line ----------
+// Use readLine() for taking input, it will read one line of from the input  and is stored in string format
+let n=parseInt(readLine());
+let marks=readLine().split(" ");
+let res=0;
+for(let i=0;i<n;i++)
+{
+    res+=parseInt(marks[i]);
+}
+let finalResult=parseInt(res/n);
+console.log(finalResult);
