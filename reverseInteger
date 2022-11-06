@@ -1,0 +1,44 @@
+reverse integer
+Given an integer, reverse digits of an integer
+
+Input
+1 line containing the integer to reverse
+
+Output
+1 line containing the reversed integer
+
+Example
+Input: 123
+
+Output: 321
+
+Input: 120
+
+Output: 21 because starting 0 can be removed
+
+Input: -123
+
+Output: -321
+
+***************************************************************************************************************
+let fs = require("fs");
+let data = fs.readFileSync(0, 'utf-8');
+let idx = 0;
+data = data.split('\n');
+
+function readLine() {
+  idx++;
+  return data[idx - 1].trim();
+}
+
+// -------- Do NOT edit anything above this line ----------
+let num=parseInt(readLine());
+let temp=num;
+let reverse=0;
+while(temp!=0)
+{
+    let reminder=temp%10;
+    reverse=reverse*10+reminder;
+    temp=parseInt(temp/10);
+}
+console.log(reverse);
