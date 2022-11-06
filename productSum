@@ -1,0 +1,71 @@
+Product & SUM
+Given an integer n, return the difference between the product of its digits and the sum of its digits. Assume that n is a non-negative integer.
+
+Input
+One line containing an integer, denoting n
+
+Output
+One line containing an integer, denoting the difference between product and sum of the digits of n
+
+Example
+Input
+
+234
+
+Output
+
+15
+
+Explanation
+
+Product of digits = 2 * 3 * 4 = 24 
+Sum of digits = 2 + 3 + 4 = 9 
+Result = 24 - 9 = 15
+Input
+
+4421
+
+Output
+
+21
+
+Explanation
+
+Product of digits = 4 * 4 * 2 * 1 = 32 
+Sum of digits = 4 + 4 + 2 + 1 = 11 
+Result = 32 - 11 = 21
+
+***********************************************************************************************************************
+let fs = require("fs");
+let data = fs.readFileSync(0, 'utf-8');
+let idx = 0;
+data = data.split('\n');
+
+function readLine() {
+    idx++;
+    return data[idx - 1].trim();
+}
+
+// -------- Do NOT edit anything above this line ----------
+// Use readLine() for taking input, it will read one line of from the input  and is stored in string format
+let n=parseInt(readLine());
+let temp=n;
+
+let sum=0;
+let sumOfProduct=1;
+while(temp>0)
+{
+let reminder=temp%10;
+sum+=reminder;
+sumOfProduct*=reminder;
+temp=parseInt(temp/10);
+}
+if(n===0)
+{
+ console.log(0)  ; 
+
+}
+else{
+let result=(sumOfProduct-sum);
+console.log(result);
+}
